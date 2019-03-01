@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.atc.daizhang.dao.GlSjPzmbMapper" >
+  <resultMap id="BaseResultMap" type="com.bean.GlSjPzmb" >
+    <id column="K_ZTSJPZMBID" property="kZtsjpzmbid" jdbcType="BIGINT" />
+    <result column="K_SJZTSJPZMBID" property="kSjztsjpzmbid" jdbcType="BIGINT" />
+    <result column="K_ZTDM" property="kZtdm" jdbcType="VARCHAR" />
+    <result column="K_SJPZMBID" property="kSjpzmbid" jdbcType="VARCHAR" />
+    <result column="K_SFMJ" property="kSfmj" jdbcType="CHAR" />
+    <result column="K_MBMC" property="mbmc" jdbcType="CHAR" />
+    <result column="K_KJND" property="kKjnd" jdbcType="INTEGER" />
+    <result column="K_KJQJ" property="kKjqj" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.bean.GlSjPzmb" extends="BaseResultMap" >
+    <result column="K_QSGS" property="kQsgs" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    K_ZTSJPZMBID, K_SJZTSJPZMBID, K_ZTDM, K_SJPZMBID, K_SFMJ, K_KJND, K_KJQJ
+  </sql>
+  
+  <sql id="Blob_Column_List" >
+    K_QSGS
+  </sql>
+ 
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,GlSjPzflMapper
+      GlSjPzmbMapper
+    <include refid="Blob_Column_List" />
+    from gl_sj_pzmb
+    where K_ZTSJPZMBID = #{kZtsjpzmbid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from gl_sj_pzmb
+    where K_ZTSJPZMBID = #{kZtsjpzmbid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.bean.GlSjPzmb" >
+    insert into gl_sj_pzmb (K_ZTSJPZMBID, K_SJZTSJPZMBID, K_ZTDM, 
+      K_SJPZMBID, K_SFMJ, K_KJND, 
+      K_KJQJ,  K_QSGS
+      )
+    values (#{kZtsjpzmbid,jdbcType=BIGINT}, #{kSjztsjpzmbid,jdbcType=BIGINT}, #{kZtdm,jdbcType=VARCHAR}, 
+      #{kSjpzmbid,jdbcType=VARCHAR}, #{kSfmj,jdbcType=CHAR}, #{kKjnd,jdbcType=INTEGER}, 
+      #{kKjqj,jdbcType=INTEGER}, #{kQsgs,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.GlSjPzmb" >
+    insert into gl_sj_pzmb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="kZtsjpzmbid != null" >
+        K_ZTSJPZMBID,
+      </if>
+      <if test="kSjztsjpzmbid != null" >
+        K_SJZTSJPZMBID,
+      </if>
+      <if test="kZtdm != null" >
+        K_ZTDM,
+      </if>
+      <if test="kSjpzmbid != null" >
+        K_SJPZMBID,
+      </if>
+      <if test="kSfmj != null" >
+        K_SFMJ,
+      </if>
+      <if test="kKjnd != null" >
+        K_KJND,
+      </if>
+      <if test="kKjqj != null" >
+        K_KJQJ,
+      </if>
+      <if test="kQsgs != null" >
+        K_QSGS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="kZtsjpzmbid != null" >
+        #{kZtsjpzmbid,jdbcType=BIGINT},
+      </if>
+      <if test="kSjztsjpzmbid != null" >
+        #{kSjztsjpzmbid,jdbcType=BIGINT},
+      </if>
+      <if test="kZtdm != null" >
+        #{kZtdm,jdbcType=VARCHAR},
+      </if>
+      <if test="kSjpzmbid != null" >
+        #{kSjpzmbid,jdbcType=VARCHAR},
+      </if>
+      <if test="kSfmj != null" >
+        #{kSfmj,jdbcType=CHAR},
+      </if>
+       <if test="kKjnd != null" >
+        #{kKjnd,jdbcType=INTEGER},
+      </if>
+      <if test="kKjqj != null" >
+        #{kKjqj,jdbcType=INTEGER},
+      </if>
+      <if test="kQsgs != null" >
+        #{kQsgs,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.GlSjPzmb" >
+    update gl_sj_pzmb
+    <set >
+      <if test="kSjztsjpzmbid != null" >
+        K_SJZTSJPZMBID = #{kSjztsjpzmbid,jdbcType=BIGINT},
+      </if>
+      <if test="kZtdm != null" >
+        K_ZTDM = #{kZtdm,jdbcType=VARCHAR},
+      </if>
+      <if test="kSjpzmbid != null" >
+        K_SJPZMBID = #{kSjpzmbid,jdbcType=VARCHAR},
+      </if>
+      <if test="kSfmj != null" >
+        K_SFMJ = #{kSfmj,jdbcType=CHAR},
+      </if>
+      <if test="kKjnd != null" >
+        K_KJND = #{kKjnd,jdbcType=INTEGER},
+      </if>
+      <if test="kKjqj != null" >
+        K_KJQJ = #{kKjqj,jdbcType=INTEGER},
+      </if>
+      <if test="kQsgs != null" >
+        K_QSGS = #{kQsgs,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where K_ZTSJPZMBID = #{kZtsjpzmbid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bean.GlSjPzmb" >
+    update gl_sj_pzmb
+    set K_SJZTSJPZMBID = #{kSjztsjpzmbid,jdbcType=BIGINT},
+      K_ZTDM = #{kZtdm,jdbcType=VARCHAR},
+      K_SJPZMBID = #{kSjpzmbid,jdbcType=VARCHAR},
+      K_SFMJ = #{kSfmj,jdbcType=CHAR},
+      K_KJND = #{kKjnd,jdbcType=INTEGER},
+      K_KJQJ = #{kKjqj,jdbcType=INTEGER},
+      K_QSGS = #{kQsgs,jdbcType=LONGVARCHAR}
+    where K_ZTSJPZMBID = #{kZtsjpzmbid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.GlSjPzmb" >
+    update gl_sj_pzmb
+    set K_SJZTSJPZMBID = #{kSjztsjpzmbid,jdbcType=BIGINT},
+      K_ZTDM = #{kZtdm,jdbcType=VARCHAR},
+      K_SJPZMBID = #{kSjpzmbid,jdbcType=VARCHAR},
+      K_SFMJ = #{kSfmj,jdbcType=CHAR},
+      K_KJND = #{kKjnd,jdbcType=INTEGER},
+      K_KJQJ = #{kKjqj,jdbcType=INTEGER},
+    where K_ZTSJPZMBID = #{kZtsjpzmbid,jdbcType=BIGINT}
+  </update>
+  <select id="querySjmb" parameterType="java.util.Map" resultMap="ResultMapWithBLOBs">
+     select * from gl_sj_pzmb
+     where K_ZTDM = #{kZtdm,jdbcType=VARCHAR} 
+	 and K_SJPZMBID = {sjpzmbid , jdbcType=VARCHAR}
+  </select>
+  <select id="selectBySjpzmbid" resultMap="ResultMapWithBLOBs" parameterType="java.util.Map">
+  	 select * from gl_sj_pzmb 
+  	 where K_SJPZMBID = #{kSjpzmbid,jdbcType=VARCHAR} 
+  	 and K_ZTDM=#{kZtdm,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectBySjpzmbidAndKjndAndKjqj" resultMap="ResultMapWithBLOBs" parameterType="java.util.Map">
+  	 select * from gl_sj_pzmb 
+  	 where K_SJPZMBID = #{kSjpzmbid,jdbcType=VARCHAR} 
+  	 and K_ZTDM=#{kZtdm,jdbcType=VARCHAR}
+  	 and K_KJND = #{kKjnd , jdbcType =INTEGER} 
+  	 and K_KJQJ = #{kKjqj , jdbcType =INTEGER} limit 1
+  </select>
+  
+  <select id="queryAllSjjtpzMbDataList" resultMap="ResultMapWithBLOBs">
+  	 select *
+  	 from gl_sj_pzmb 
+  	 where  K_SFMJ='1' 
+  </select>
+  
+  <select id="queryMjSjjtPzMb" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+  	<!--  select mb.*,sysmb.K_MBMC 
+  	 from gl_sj_pzmb mb ,gl_sys_sj_pzmb sysmb 
+  	 where sysmb.K_SJPZMBID=mb.K_SJPZMBID and mb.K_ZTDM=#{kZtdm,jdbcType=VARCHAR} and mb.K_SFMJ='1' 
+  	  -->
+  	 select *
+  	 from gl_sj_pzmb 
+  	 where K_ZTDM=#{kZtdm,jdbcType=VARCHAR} and K_SFMJ='1' 
+  </select>
+  
+  <select id="queryMjSjjtPzMbByZtdmAndKjndAndKjqj" resultMap="ResultMapWithBLOBs" parameterType="java.util.Map">
+  	 select *
+  	 from gl_sj_pzmb 
+  	 where K_ZTDM=#{ztdm,jdbcType=VARCHAR}
+  	 and K_KJND = #{kjnd , jdbcType =INTEGER} 
+  	 and K_KJQJ = #{kjqj , jdbcType =INTEGER}
+  	 and K_SFMJ='1' 
+  </select>
+  
+  <select id="queryMjSjMbNoSysByZtdm" parameterType="java.util.Map" resultMap="ResultMapWithBLOBs">
+  	 select mb.* FROM GL_SJ_PZMB mb where  mb.K_ZTDM=#{kZtdm,jdbcType=VARCHAR}
+  	  <if test="kSjpzmbid != null" >
+      and mb.K_SJPZMBID=#{kSjpzmbid,jdbcType=VARCHAR}
+      </if>
+  	 and mb.K_SFMJ='1' 
+  </select>
+  
+  <select id="queryMjSjMbNoSysByZtdmAndKjndAndKjqj" parameterType="java.util.Map" resultMap="ResultMapWithBLOBs">
+  	 select mb.* FROM GL_SJ_PZMB mb where  mb.K_ZTDM=#{kZtdm,jdbcType=VARCHAR}
+  	 and  mb.K_KJND = #{kjnd , jdbcType = INTEGER}
+  	 and  mb.K_KJQJ = #{kjqj , jdbcType = INTEGER}
+  	  <if test="kSjpzmbid != null" >
+      and mb.K_SJPZMBID=#{kSjpzmbid,jdbcType=VARCHAR}
+      </if>
+  	 and mb.K_SFMJ='1' 
+  </select>
+  
+  <select id="selectListBySjpzmbid" resultMap="ResultMapWithBLOBs" parameterType="java.util.Map">
+  	 select * from gl_sj_pzmb where K_SJPZMBID = #{kSjpzmbid,jdbcType=VARCHAR} and K_ZTDM=#{kZtdm,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectListBySjpzmbidAndKjndAndKjqj" resultMap="ResultMapWithBLOBs" parameterType="java.util.Map">
+  	select * from gl_sj_pzmb 
+  	where K_SJPZMBID = #{kSjpzmbid,jdbcType=VARCHAR} 
+  	and K_ZTDM=#{kZtdm,jdbcType=VARCHAR}
+  	and K_KJND = #{kjnd , jdbcType = INTEGER}
+  	and K_KJQJ = #{kjqj , jdbcType = INTEGER}
+  </select>
+  
+  <delete id="deleteSjpzmbByZtdm" parameterType="java.lang.String">
+  	 delete from gl_sj_pzmb
+    where K_ZTDM=#{ztdm,jdbcType=VARCHAR}
+  </delete>
+  
+  <select id="queryByZtdm" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+     select   
+     <include refid="Base_Column_List" />
+     ,
+     <include refid="Blob_Column_List" /> 
+    from gl_sj_pzmb where K_ZTDM=#{ztdm,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectSjpzmbDataByCondition" parameterType="java.util.Map" resultMap="ResultMapWithBLOBs">
+  		SELECT    
+  		<include refid="Base_Column_List" />
+     	,
+     	<include refid="Blob_Column_List" />  
+     	FROM gl_sj_pzmb 
+		WHERE K_ZTDM =  #{kZtdm,jdbcType=VARCHAR}
+		AND K_KJND = #{kKjnd , jdbcType = INTEGER}
+  		AND K_KJQJ = #{kKjqj , jdbcType = INTEGER} 
+		<if test="sjpzmbIds != null">
+		    and K_SJPZMBID  in
+		    <foreach item="pzmb" collection="sjpzmbIds" open="(" separator="," close=")">
+		        #{pzmb.kSjpzmbid,jdbcType=VARCHAR}
+	        </foreach>      
+	    </if>
+  </select>
+
+  <update id="updatePzmbGs"  parameterType="java.util.Map">
+        update gl_sj_pzmb set K_QSGS =  #{kQsgs,jdbcType=LONGVARCHAR} where  K_SJPZMBID = #{kSjpzmbid,jdbcType=VARCHAR}
+  </update>
+    <select id ="selectBaseListByZtdmAndKjndAndKjqj" resultMap="BaseResultMap"  >
+        SELECT K_ZTSJPZMBID,K_SJPZMBID,K_ZTDM,K_KJND,K_KJQJ FROM gl_sj_pzmb
+        WHERE k_ztdm=#{ztdm} AND k_kjnd=#{kjnd} AND k_kjqj = #{kjqj} AND K_SFMJ=1
+  </select>
+
+</mapper>
