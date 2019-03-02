@@ -21,8 +21,10 @@
         <junit.version>4.12</junit.version>
         <spring.version>5.0.9.RELEASE</spring.version>
         <lombok.version>1.16.20</lombok.version>
-        <sharding.jdbc.version>3.0.0</sharding.jdbc.version>
+        <sharding.jdbc.version.spring.boot>3.0.0</sharding.jdbc.version.spring.boot>
         <com.alibaba.fastjson.version>1.2.7</com.alibaba.fastjson.version>
+        <sharding.jdbc.version>2.0.3</sharding.jdbc.version>
+
     </properties>
 
 
@@ -122,23 +124,26 @@
 
 
 
+        <!--sharding jdbc springboot依赖-->
+        <!--<dependency>-->
+            <!--<groupId>io.shardingsphere</groupId>-->
+            <!--<artifactId>sharding-jdbc-spring-boot-starter</artifactId>-->
+            <!--<version>${sharding.jdbc.version.spring.boot}</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>io.shardingsphere</groupId>-->
+            <!--<artifactId>sharding-jdbc-spring-namespace</artifactId>-->
+            <!--<version>${sharding.jdbc.version}</version>-->
+        <!--</dependency>-->
+
+
         <!--sharding jdbc 依赖-->
         <dependency>
-            <groupId>io.shardingsphere</groupId>
-            <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+            <groupId>io.shardingjdbc</groupId>
+            <artifactId>sharding-jdbc-core</artifactId>
             <version>${sharding.jdbc.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>io.shardingsphere</groupId>
-            <artifactId>sharding-jdbc-spring-namespace</artifactId>
-            <version>${sharding.jdbc.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-
 
 
 

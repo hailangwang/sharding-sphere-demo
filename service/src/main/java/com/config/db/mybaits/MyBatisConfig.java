@@ -21,7 +21,7 @@ import javax.sql.DataSource;
  */
 //@Configuration
 //@EnableTransactionManagement
-//@AutoConfigureAfter(DataSourceDruidConfig.class)
+//@AutoConfigureAfter(DruidDataSourceConfig.class)
 
 
 public class MyBatisConfig implements TransactionManagementConfigurer {

@@ -1,17 +1,18 @@
 package com.config.db;/**
- * Created by 168 on 2019/2/28.
+ * Created by 168 on 2019/3/2.
  */
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @description
  * @author: hailang
- * @create: 2019-02-28 16:00
+ * @create: 2019-03-02 18:05
  */
-//@Configuration
-//@ConfigurationProperties(prefix="spring.datasource")
-public class DataSourceDruidConfig {
-
-
+@Configuration
+@ConfigurationProperties(prefix="spring.datasource")
+public class JdbcConfig {
 
 
     private String password;
@@ -53,23 +54,4 @@ public class DataSourceDruidConfig {
     public void setDriverClassName(String driverClassName) {
         this.driverClassName = driverClassName;
     }
-
-//    @Bean
-//    public DataSource dataSource(){
-//
-//
-//        System.out.println(username);
-//
-////        DruidDataSource dataSource = new DruidDataSource();
-//
-//        dataSource.setDriverClassName(driverClassName);
-//        dataSource.setUsername(username);
-//        dataSource.setPassword(password);
-//        dataSource.setUrl(url);
-//
-//
-//        return dataSource;
-//
-//    }
-
 }
