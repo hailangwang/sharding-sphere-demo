@@ -1,8 +1,24 @@
-spring:
-  datasource:
-    password:Yzf270701#
-    name:root
-    driver-class-name:com.mysql.jdbc.Driver
-    url:jdbc\:mysql\://172.23.40.211\:3306/yzf_biz?useUnicode\=true&allowMultiQueries\=true&characterEncoding\=utf-8&zeroDateTimeBehavior\=convertToNull
-spring1:
-     password:Yzf270701#
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+sharding:
+  jdbc:
+    datasource:
+      names: ds0
+      ds0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        password: Yzf270701#
+        username: root
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://172.23.40.211:3306/yzf_biz?useUnicode=true&allowMultiQueries=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+    config:
+      sharding:
+        props:
+          sql.show: true
+        tables:
+          gl_sj_pzmb_test:
+             key-generator-column-name: ID  #主键
+             actual-data-nodes: ds0.gl_sj_pzmb_test${0..1}
+             table-strategy:  #分表策略
+                inline:
+                  shardingColumn: ID
+                  algorithm-expression: gl_sj_pzmb_test${ID % 2}

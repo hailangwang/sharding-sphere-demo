@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @description
@@ -36,5 +37,20 @@ public class  GlSjPzmbServiceImpl implements GlSjPzmbService {
 
         return  glSjPzmbMapper.selectBaseListByZtdmAndKjndAndKjqj(ztdm,kjnd,kjqj);
 
+    }
+
+    @Override
+    public List<GlSjPzmb> selectByGlSjPzmb(GlSjPzmb glSjPzmb) {
+        return  glSjPzmbMapper.selectByGlSjPzmb(glSjPzmb);
+    }
+
+    @Override
+    public GlSjPzmb selectByPrimaryKey(long ID1) {
+        return glSjPzmbMapper.selectByPrimaryKey(ID1);
+    }
+
+    @Override
+    public GlSjPzmb selectByMap(Map<String, Object> map) {
+        return glSjPzmbMapper.selectByMap(map);
     }
 }

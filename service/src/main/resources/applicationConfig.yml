@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    password: Yzf270701#
+    username: root
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://172.23.40.211:3306/yzf_biz?useUnicode=true&allowMultiQueries=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+mybatis:
+  mapperLocations: classpath:mapper/*.xml

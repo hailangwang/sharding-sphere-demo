@@ -6,6 +6,7 @@ import java.io.Serializable;
  * 税金凭证模板Bean
  * @author Administrator
  */
+
 public class GlSjPzmb implements Serializable {
     /**
      * 
@@ -13,7 +14,7 @@ public class GlSjPzmb implements Serializable {
      */
     private static final long serialVersionUID = -2132502098634376517L;
 
-    private Long kZtsjpzmbid; //账套税金凭证模板ID
+    private Long ID; //账套税金凭证模板ID
 
     private Long kSjztsjpzmbid; //税金账套上级凭证模板ID
 
@@ -35,12 +36,12 @@ public class GlSjPzmb implements Serializable {
 
     private boolean hasChoose = false; //是否已经被选择成税金凭证模板
 
-    public Long getkZtsjpzmbid() {
-        return kZtsjpzmbid;
+    public Long getID() {
+        return ID;
     }
 
-    public void setkZtsjpzmbid(Long kZtsjpzmbid) {
-        this.kZtsjpzmbid = kZtsjpzmbid;
+    public void setID(Long ID) {
+        this.ID = ID;
     }
 
     public Long getkSjztsjpzmbid() {
@@ -122,5 +123,6 @@ public class GlSjPzmb implements Serializable {
     public void setHasChoose(boolean hasChoose) {
         this.hasChoose = hasChoose;
     }
+
 
 }

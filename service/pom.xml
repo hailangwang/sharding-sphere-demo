@@ -21,6 +21,8 @@
         <junit.version>4.12</junit.version>
         <spring.version>5.0.9.RELEASE</spring.version>
         <lombok.version>1.16.20</lombok.version>
+        <sharding.jdbc.version>3.0.0</sharding.jdbc.version>
+        <com.alibaba.fastjson.version>1.2.7</com.alibaba.fastjson.version>
     </properties>
 
 
@@ -49,17 +51,25 @@
         </dependency>
 
         <!-- 添加mybatis依赖 -->
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>${org.mybatis.mybatis.version}</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.mybatis</groupId>-->
+            <!--<artifactId>mybatis</artifactId>-->
+            <!--<version>${org.mybatis.mybatis.version}</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.mybatis</groupId>-->
+            <!--<artifactId>mybatis-spring</artifactId>-->
+            <!--<version>${org.mybatis.mybatis-spring.version}</version>-->
+        <!--</dependency>-->
 
         <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
-            <version>${org.mybatis.mybatis-spring.version}</version>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.1.1</version>
         </dependency>
+
+
         <!-- 添加MySQL依赖 -->
         <dependency>
             <groupId>mysql</groupId>
@@ -82,7 +92,12 @@
         </dependency>
 
 
-
+        <!--fast json-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${com.alibaba.fastjson.version}</version>
+        </dependency>
 
         <!--junit 依赖-->
         <dependency>
@@ -98,11 +113,34 @@
             <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+
+
+        <!--sharding jdbc 依赖-->
+        <dependency>
+            <groupId>io.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+            <version>${sharding.jdbc.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-spring-namespace</artifactId>
+            <version>${sharding.jdbc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+
+
 
 
     </dependencies>

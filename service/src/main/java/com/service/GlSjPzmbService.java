@@ -5,6 +5,7 @@ package com.service;/**
 import com.bean.GlSjPzmb;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @description
@@ -19,4 +20,9 @@ public interface GlSjPzmbService {
 
     public List<GlSjPzmb> selectBaseListByZtdmAndKjndAndKjqj(String ztdm, Integer kjnd, Integer kjqj);
 
+    List<GlSjPzmb> selectByGlSjPzmb(GlSjPzmb glSjPzmb);
+
+    GlSjPzmb selectByPrimaryKey(long ID1);
+
+    GlSjPzmb selectByMap(Map<String, Object> map);
 }
